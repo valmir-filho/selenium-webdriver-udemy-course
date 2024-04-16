@@ -13,6 +13,7 @@ from selenium.webdriver.common.by import By
 @pytest.mark.usefixtures("setup_teardown")
 class TestCT03:
     def test_ct03_valid_login(self):
+        
         # Retrieve the global driver instance from conftest.py, shared across the pytest tests.
         driver = conftest.driver
 
