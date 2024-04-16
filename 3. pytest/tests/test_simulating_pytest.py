@@ -5,6 +5,7 @@ import pytest
 # Define a custom marker named 'simulating' to categorize certain tests.
 @pytest.mark.simulating
 class TestSimulating:
+    
     # Define a test method to verify that the number 1 equals itself.
     def test_simulating_1(self):
         assert 1 == 1  # This test will pass as the assertion is true.
