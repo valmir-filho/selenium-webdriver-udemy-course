@@ -9,6 +9,7 @@ from pages.login_page import LoginPage
 @pytest.mark.usefixtures("setup_teardown")
 class TestCT03:
     def test_ct03_valid_login(self):
+        
         # Create an instance of the LoginPage class to handle login operations.
         login_page = LoginPage()
 
