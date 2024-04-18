@@ -9,8 +9,8 @@ from pages.base_page import BasePage
 
 
 # Class to represent the login page interactions, inheriting from BasePage.
-# LoginPage class that encapsulates the specific interactions required to perform login actions on the web
-# application's login page.
+# The LoginPage class encapsulates the specific interactions required to perform login actions on the web application's
+# login page.
 class LoginPage(BasePage):
 
     # Constructor to initialize the LoginPage class.
@@ -30,9 +30,6 @@ class LoginPage(BasePage):
         # Define locator for the error message that appears after a failed login attempt.
         self.error_message_login = (By.XPATH, "//*[@data-test='error']")
 
-    # Method to perform login using the provided username and password.
-    # Perform login using the specified username and password by entering the credentials into the form and submitting
-    # it.
     def do_login(self, username, password):
 
         # Use the inherited to_write method from BasePage to enter the username into the username field.
@@ -44,9 +41,18 @@ class LoginPage(BasePage):
         # Use the inherited click method from BasePage to click the login button and submit the login form.
         self.click(self.login_button)
 
-    # Check if the error message is displayed after a failed login attempt. This method uses the inherited
+    # Checks if the error message is displayed after a failed login attempt. This method uses the inherited
     # "check_if_element_exist" method from BasePage to verify the element's presence.
-    def check_error_message_login(self):
+    def check_exist_error_message_login(self):
 
         # Utilize the "check_if_element_exist" method to ensure the error message is displayed on unsuccessful login.
         self.check_if_element_exist(self.error_message_login)
+
+    # Verifies that the error message text matches the expected text.
+    def check_error_text_message(self, expected_text):
+
+        # Retrieve the text of the error message element.
+        found_text = self.get_text_element(self.error_message_login)
+
+        # Assert that the found text matches the expected text, providing a detailed error message if not.
+        assert found_text == expected_text, f"Founded text: '{found_text}'. Expected text: '{expected_text}'."
